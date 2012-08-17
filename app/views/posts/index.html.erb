@@ -1,25 +1,21 @@
-<h1>Listing posts</h1>
+<h1>ブログ</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p style="text-align: right;">
+  <%= link_to('記事を書く', new_post_path) %>
+</p>
 
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.body %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<hr />
+<h2><%= post.title %></h2>
+<p style="text-align: right;">
+  <%= post.updated_at.strftime("%Y年%m月%d日 %H時%M分") %>
+</p>
+
+<pre><%= post.body %></pre>
+
+<p style="text-align: right;">
+  <%= link_to('編集', edit_post_path(post)) %>
+  <%= link_to('削除', post, method: :delete, data: { confirm: '本当に削除しますか？' }) %>
+</p>
+
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>
