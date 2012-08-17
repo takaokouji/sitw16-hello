@@ -1,4 +1,8 @@
 Hello::Application.routes.draw do
+  get "home/index"
+
+  get "home/contact"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
