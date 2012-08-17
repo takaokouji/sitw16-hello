@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
+<h1>記事の表示</h1>
+
+<hr />
+
+<h2><%= @post.title %></h2>
+<p style="text-align: right;">
+  <%= @post.updated_at.strftime("%Y年%m月%d日 %H時%M分") %>
 </p>
 
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
+<pre><%= @post.body %></pre>
 
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to '編集', edit_post_path(@post) %> |
+<%= link_to 'ブログ', posts_path %>
