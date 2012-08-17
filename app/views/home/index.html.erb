@@ -1,3 +1,9 @@
+<%
+  @counter = Counter.first
+  Counter.increment_counter(:count, @counter.id)
+  @counter.reload
+%>
 <h1>高尾のホームページ</h1>
 <p>ようこそ、高尾のホームページへいらっしゃいました。</p>
+<p>あなたは <%= @counter.count %> 番目の訪問者です。</p>
 <p>現在の時刻は <%= Time.now.strftime("%Y年%m月%d日 %H時%M分%S秒") %> です。</p>
